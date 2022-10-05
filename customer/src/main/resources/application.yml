@@ -7,7 +7,7 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://localhost:3306/customer
+    url: jdbc:mysql://localhost:3307/customer
     driver-class: com.mysql.cj.jdbc.MySQL5Dialect
   jpa:
     hibernate:
@@ -15,3 +15,5 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+    show-sql: true
