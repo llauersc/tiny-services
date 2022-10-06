@@ -1,6 +1,19 @@
-mvn archetype:generate -DgroupId=com.example -DartifactId=microservices -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+# Реализация проверки покупателей на микросервисной архитектуре
 
-mvn archetype:generate -DgroupId=com.example -DartifactId=customer
+## Проект не завершен
 
-//Директория маунта докера
-\\wsl$\docker-desktop-data\data\docker\volumes
+### Оставлю тут для справки
+
+### Генерация модулей Maven
+```console
+    mvn archetype:generate -DgroupId=com.example -DartifactId=microservices -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+   mvn archetype:generate -DgroupId=com.example -DartifactId=customer
+```
+
+### При желании залезть в постгрес через cli докера
+
+```console
+  psql dbname username
+  \c dbname - use database
+  \dt - show tables
+```
