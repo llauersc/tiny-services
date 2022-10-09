@@ -7,7 +7,7 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://localhost:3307/notification
+    url: jdbc:mysql://localhost:3308/notification
     driver-class: com.mysql.cj.jdbc.MySQL5Dialect
   jpa:
     hibernate:
