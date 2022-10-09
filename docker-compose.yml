@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
-      - MYSQL_DATABASE=${MYSQL_DB}
+      - MYSQL_DATABASE=${CUSTOMER_DB}
     volumes:
       - mysql_customer:/var/lib/mysql
     ports:
@@ -20,26 +20,25 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_DB: ${FRAUD_DB}
     volumes:
       - postgres_fraud:/data/postgres
     ports:
       - "${POSTGRES_PORT}:5432"
-
-  pgadmin:
-    container_name: pg_admin
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
-    volumes:
-      - pgadmin:/var/lib/pgadmin
-    ports:
-      - "5050:80"
+    
+  notification:
+    image: mysql:8
+    container_name: notification
     restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${NOTIFICATION_DB}
+    volumes:
+      - mysql_notification:/var/lib/mysql
+    ports:
+      - "${MYSQL_PORT}:3306"
   
 volumes:
   mysql_customer:
   postgres_fraud:
-  pgadmin:
+  mysql_notification:

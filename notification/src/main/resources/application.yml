@@ -1,0 +1,19 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: notification
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3307/notification
+    driver-class: com.mysql.cj.jdbc.MySQL5Dialect
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+    show-sql: true
